@@ -1,28 +1,31 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/justin/.oh-my-zsh
 
 DEFAULT_USER="justin"
 
-# Set name of the theme to load.
+# Set name of the theme to load. Optionally, if you set this to "random"
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
 # ZSH_THEME="pygmalion"
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="agnoster"
 # ZSH_THEME="mine"
-
+ZSH_THEME="powerlevel9k/powerlevel9k"
 # POWERLEVEL9K_MODE='awesome-fontconfig'
 # POWERLEVEL9K_MODE='awesome-patched'
-ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # autoload -U promptinit; promptinit
 # prompt pure
-
-# these two are to make sed work in a find command - not a perfect solution - see url
-# http://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
-# export LC_CTYPE=C 
-# export LANG=C
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -59,8 +62,6 @@ ENABLE_CORRECTION="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
-export NVM_LAZY_LOAD=true
-
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
@@ -68,8 +69,7 @@ export NVM_LAZY_LOAD=true
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(osx git brew history vi-mode)
-plugins+=(zsh-nvm)
+plugins=(osx git history vi-mode)
 
 # User configuration
 
@@ -79,6 +79,11 @@ export PATH="/Users/justin/.bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/u
 # added the following line to support gnucash python
 export PYTHONPATH=$PYTHONPATH:/opt/local/lib/python2.7/site-packages
 source $ZSH/oh-my-zsh.sh
+
+# these two are to make sed work in a find command - not a perfect solution - see url
+# http://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
+# export LC_CTYPE=C 
+# export LANG=C
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -97,7 +102,7 @@ export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -107,29 +112,39 @@ export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias tf="~/TEE-CLC-14.114.0/tf"
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export NODE_PATH='/usr/local/lib/node_modules'
-
-export ANDROID_HOME=~/Library/Android/sdk
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-
-export TF_DIFF_COMMAND="bcomp %1 %2 -title1=%6 -title2=%7"
-
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+test -e "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+
+# tfs
+#alias tf="~/TEE-CLC-14.114.0/tf"
+#export TF_DIFF_COMMAND="bcomp %1 %2 -title1=%6 -title2=%7"
+
+# fzf
+export FZF_DEFAULT_COMMAND='ag --ignore *.pyc -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # z utility for jumping around directories
-. ~/bin/z/z.sh
+. /usr/local/etc/profile.d/z.sh
+
+# android
+# export ANDROID_HOME=~/Library/Android/sdk
+# export PATH=${PATH}:${ANDROID_HOME}/tools
+# export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+
+#nvm and node
+# export NODE_PATH='/usr/local/lib/node_modules'
+export NVM_LAZY_LOAD=true
+
+#plugins+=(zsh-nvm)
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
