@@ -165,3 +165,8 @@ echo "$1    ${@:2}"
 function ti() { echo i `date '+%Y-%m-%d %H:%M:%S'` "$1  ${@:2}" >>$TIMELOG }
 function to() { echo o `date '+%Y-%m-%d %H:%M:%S'` >>$TIMELOG }
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # this loads nvm
+[ -s "$NVM_DIR/bash_completions" ] && \. "$NVM_DIR/bash_completion" # this loads nvm bash completion
+
