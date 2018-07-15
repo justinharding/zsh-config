@@ -150,6 +150,12 @@ export NVM_LAZY_LOAD=true
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion export PATH="/usr/local/sbin:$PATH"
 
+# to run local python packages
+export PATH=$PATH:/Users/justin/Library/Python/2.7/bin
+
+# if we wanted python3 packages we would enable this line instead/aw well
+# export PATH=$PATH:/Users/justin/Library/Python/3.6/bin
+
 # google search from terminal
 function google() { open /Applications/Safari.app/ "http://www.google.com/search?q= $1"; }
 
