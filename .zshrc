@@ -159,3 +159,9 @@ export PATH=$PATH:/Users/justin/Library/Python/2.7/bin
 # google search from terminal
 function google() { open /Applications/Safari.app/ "http://www.google.com/search?q= $1"; }
 
+# ledger time tracking
+export TIMELOG=/Users/justin/Dropbox/work/admin/work.timeclock
+echo "$1    ${@:2}"
+function ti() { echo i `date '+%Y-%m-%d %H:%M:%S'` "$1  ${@:2}" >>$TIMELOG }
+function to() { echo o `date '+%Y-%m-%d %H:%M:%S'` >>$TIMELOG }
+
