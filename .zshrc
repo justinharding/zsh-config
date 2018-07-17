@@ -69,7 +69,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(osx git history vi-mode)
+plugins=(osx git brew history vi-mode)
 
 # User configuration
 
@@ -112,38 +112,43 @@ export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias tf="~/TEE-CLC-14.114.0/tf"
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 test -e "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# android sdk
+if [ -d "~/Library/Android/sdk" ]
+then
+    export ANDROID_HOME=~/Library/Android/sdk
+    export PATH=${PATH}:${ANDROID_HOME}/tools
+    export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+fi
+
 fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 # tfs
 #alias tf="~/TEE-CLC-14.114.0/tf"
+# beyond compare
 #export TF_DIFF_COMMAND="bcomp %1 %2 -title1=%6 -title2=%7"
+
 
 # fzf
 export FZF_DEFAULT_COMMAND='ag --ignore *.pyc -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # z utility for jumping around directories
 . /usr/local/etc/profile.d/z.sh
 
-# android
-# export ANDROID_HOME=~/Library/Android/sdk
-# export PATH=${PATH}:${ANDROID_HOME}/tools
-# export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-
 #nvm and node
 # export NODE_PATH='/usr/local/lib/node_modules'
 export NVM_LAZY_LOAD=true
-
 #plugins+=(zsh-nvm)
 
 # export NVM_DIR="$HOME/.nvm"
@@ -159,14 +164,14 @@ export PATH=$PATH:/Users/justin/Library/Python/2.7/bin
 # google search from terminal
 function google() { open /Applications/Safari.app/ "http://www.google.com/search?q= $1"; }
 
+
+export PATH="/usr/local/sbin:$PATH"
+
 # ledger time tracking
 export TIMELOG=/Users/justin/Dropbox/work/admin/work.timeclock
-echo "$1    ${@:2}"
 function ti() { echo i `date '+%Y-%m-%d %H:%M:%S'` "$1  ${@:2}" >>$TIMELOG }
 function to() { echo o `date '+%Y-%m-%d %H:%M:%S'` >>$TIMELOG }
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # this loads nvm
-[ -s "$NVM_DIR/bash_completions" ] && \. "$NVM_DIR/bash_completion" # this loads nvm bash completion
+# alias ti="echo i `date '+%Y-%m-%d %H:%M:%S'` \$* >>$TIMELOG"
+# alias to="echo o `date '+%Y-%m-%d %H:%M:%S'` >>$TIMELOG"
 
