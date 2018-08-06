@@ -147,13 +147,13 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 . /usr/local/etc/profile.d/z.sh
 
 #nvm and node
-# export NODE_PATH='/usr/local/lib/node_modules'
+export NODE_PATH='/usr/local/lib/node_modules'
 export NVM_LAZY_LOAD=true
-#plugins+=(zsh-nvm)
+plugins+=(zsh-nvm)
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion export PATH="/usr/local/sbin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion export PATH="/usr/local/sbin:$PATH"
 
 # to run local python packages
 export PATH=$PATH:/Users/justin/Library/Python/2.7/bin
