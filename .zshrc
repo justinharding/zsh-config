@@ -182,3 +182,4 @@ function to() { echo o `date '+%Y-%m-%d %H:%M:%S'` >>$TIMELOG }
 # alias ti="echo i `date '+%Y-%m-%d %H:%M:%S'` \$* >>$TIMELOG"
 # alias to="echo o `date '+%Y-%m-%d %H:%M:%S'` >>$TIMELOG"
 
+export PATH="/usr/local/sbin:$PATH"
