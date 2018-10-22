@@ -134,6 +134,10 @@ fi
 fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# emacs
+alias ec='emacsclient --no-wait'
+alias ecc=emacsclient
+# alias emacs='emacsclient -nw'
 
 # tfs
 #alias tf="~/TEE-CLC-14.114.0/tf"
