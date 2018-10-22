@@ -115,7 +115,6 @@ export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias tf="~/TEE-CLC-14.114.0/tf"
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 
@@ -131,6 +130,16 @@ then
     export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 fi
 
+#nvm and node
+export NODE_PATH='/usr/local/lib/node_modules'
+export NVM_LAZY_LOAD=true
+plugins+=(zsh-nvm)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion export PATH="/usr/local/sbin:$PATH"
+
+
 fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -140,9 +149,10 @@ alias ecc=emacsclient
 # alias emacs='emacsclient -nw'
 
 # tfs
-#alias tf="~/TEE-CLC-14.114.0/tf"
-# beyond compare
-#export TF_DIFF_COMMAND="bcomp %1 %2 -title1=%6 -title2=%7"
+# alias tf="~/TEE-CLC-14.114.0/tf"
+
+# beyond compare with tfs
+# export TF_DIFF_COMMAND="bcomp %1 %2 -title1=%6 -title2=%7"
 
 
 # fzf
@@ -153,15 +163,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # z utility for jumping around directories
 . /usr/local/etc/profile.d/z.sh
 
-#nvm and node
-export NODE_PATH='/usr/local/lib/node_modules'
-export NVM_LAZY_LOAD=true
-plugins+=(zsh-nvm)
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion export PATH="/usr/local/sbin:$PATH"
-
 # to run local python packages
 export PATH=$PATH:/Users/justin/Library/Python/2.7/bin
 
@@ -171,15 +172,9 @@ export PATH=$PATH:/Users/justin/Library/Python/2.7/bin
 # google search from terminal
 function google() { open /Applications/Safari.app/ "http://www.google.com/search?q= $1"; }
 
-
-export PATH="/usr/local/sbin:$PATH"
-
 # ledger time tracking
 export TIMELOG=/Users/justin/Dropbox/work/admin/work.timeclock
 function ti() { echo i `date '+%Y-%m-%d %H:%M:%S'` "$1  ${@:2}" >>$TIMELOG }
 function to() { echo o `date '+%Y-%m-%d %H:%M:%S'` >>$TIMELOG }
-
-# alias ti="echo i `date '+%Y-%m-%d %H:%M:%S'` \$* >>$TIMELOG"
-# alias to="echo o `date '+%Y-%m-%d %H:%M:%S'` >>$TIMELOG"
 
 export PATH="/usr/local/sbin:$PATH"
