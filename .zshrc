@@ -123,7 +123,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 test -e "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # android sdk
-if [ -d "~/Library/Android/sdk" ]
+if [ -d ~/Library/Android/sdk ]
 then
     export ANDROID_HOME=~/Library/Android/sdk
     export PATH=${PATH}:${ANDROID_HOME}/tools
